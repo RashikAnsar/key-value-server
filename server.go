@@ -21,15 +21,6 @@ func main() {
 	r := chi.NewRouter()
 
 	r.Use(middleware.Logger)
-	// // Custom middleware for logging
-	// r.Use(func(next http.Handler) http.Handler {
-	// 	fn := func(w http.ResponseWriter, r *http.Request) {
-	// 		log.Printf("got request: %+v\n", r)
-	// 		next.ServeHTTP(w, r)
-	// 	}
-	// 	return http.HandlerFunc(fn)
-	// })
-
 	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
 		JSON(w, map[string]string{"hello": "world"})
 	})
